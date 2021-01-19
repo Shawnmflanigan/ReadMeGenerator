@@ -1,0 +1,24 @@
+{
+  "name": "readmegen",
+  "version": "1.0.0",
+  "description": "a readme generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shawnmflanigan/ReadMeGenerator.git"
+  },
+  "keywords": [
+    "README",
+    "readme",
+    "generator"
+  ],
+  "author": "Shawn Flanigan <shawnmflanigan@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shawnmflanigan/ReadMeGenerator/issues"
+  },
+  "homepage": "https://github.com/Shawnmflanigan/ReadMeGenerator#readme"
+}
