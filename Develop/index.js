@@ -1,5 +1,8 @@
 //Include packages needed for this application
-var inquirer = require('inquirer');
+const fs = require('fs');
+const path = require('path');
+const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 //Create an array of questions for user input
 const questions = [
@@ -13,13 +16,25 @@ const questions = [
         message: 'Please provide a description of this project.',
     },
     {
+        type: 'list',
+        name: 'imageQuestion',
+        message: 'Would you like to include images?',
+        choices: ['Yes', 'No'],
+    },
+    {
+        type: 'input',
+        name: 'images',
+        message: 'Please provide the path name for your images',
+        when: (inquirerResponses) => inquirerResponses.imageQuestion === 'Yes',
+    },
+    {
         type: 'input',
         name: 'installation',
         message: 'What command do you need to run the dependancies?',
     },
     {   type: 'input',
         name: 'tests',
-        message: 'What cammand do you need to run tests?',
+        message: 'What command do you need to run tests?',
     },
     {
         type: 'input',
@@ -46,11 +61,17 @@ const questions = [
     },
 ];
 
-//Create a function to write README file
-function writeToFile(fileName, data) {}
-
-//Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
+// Function to write README file using the user input
+function writeToFile(fileName, data) {
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+  }
+  
+  // Function to initialize app
+  function init() {
+    inquirer.prompt(questions).then((inquirerResponses) => {
+      console.log('Generating README...');
+      writeToFile('README.md', generateMarkdown({ ...inquirerResponses }));
+    });
+  }
+  
+  init();
