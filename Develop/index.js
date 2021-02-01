@@ -16,18 +16,6 @@ const questions = [
         message: 'Please provide a description of this project.',
     },
     {
-        type: 'list',
-        name: 'imageQuestion',
-        message: 'Would you like to include images?',
-        choices: ['Yes', 'No'],
-    },
-    {
-        type: 'input',
-        name: 'images',
-        message: 'Please provide the path name for your images',
-        when: (inquirerResponses) => inquirerResponses.imageQuestion === 'Yes',
-    },
-    {
         type: 'input',
         name: 'installation',
         message: 'What command do you need to run the dependancies?',
@@ -57,7 +45,7 @@ const questions = [
     {   type: 'list',
         name: 'license',
         message: 'Which licence would you like to use for your project?',
-        choices: ['ISC', 'MIT', 'Apache 2.0', 'BSD 3', 'GNU', 'Mozilla 2.0', 'Other', 'None'],
+        choices: ['ISC', 'MIT', 'Apache', 'BSD', 'GNU', 'Mozilla','None'],
     },
 ];
 
@@ -68,9 +56,9 @@ function writeToFile(fileName, data) {
   
   // Function to initialize app
   function init() {
-    inquirer.prompt(questions).then((inquirerResponses) => {
+    inquirer.prompt(questions).then((answers) => {
       console.log('Generating README...');
-      writeToFile('README.md', generateMarkdown({ ...inquirerResponses }));
+      writeToFile('README.md', generateMarkdown({ ...answers }));
     });
   }
   
