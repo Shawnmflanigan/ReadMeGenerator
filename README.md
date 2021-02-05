@@ -10,32 +10,25 @@
 
 ## General Info
 
-This is a simple password generator which meets the following conditions:
-
-- Functional, deployed application
-- GitHub repository with README describing the project
-- Button click to generate password.
-- Character type selection which includes: lowercase and uppercase letters, numeric, and special characters.
-- Able to choose between 8 - 128 characters for password.
-- Random password generated in page.
+This is a straightforward CLI application that allows the user to generate markdown for use in a README file.
 
 ## Video Walkthrough
 
-[Link:=](https://drive.google.com/file/d/1UyqiWFepZqLIfbZN0bO9ZgeaMgv_jDEX/view)
+[Video Walkthrough](https://drive.google.com/file/d/1UyqiWFepZqLIfbZN0bO9ZgeaMgv_jDEX/view)
 
 ## Technologies
 
-This project is created with:
+This project is created in node.js using the folowwing dependancies:
 
-- [HTML](https://html.com/)
-- [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
-- [Javascript](https://www.javascript.com/)
+- [fs](https://www.npmjs.com/package/file-system)
+- [path](https://www.npmjs.com/search?q=path)
+- [inquirer](https://www.npmjs.com/package/inquirer?activeTab=readme)
 
 ## Next Steps
 
-- Build recursive function which restarts the generate function should the user not choose any characters.
+- Add the ability to customize table of contents.
 
-- Restart the passCharLength function on line 32 if user chooses anything other then numbers for the password length.
+- Add an option for importing images.
 
 ## Author
 
